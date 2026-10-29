@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>음률 보이스 PT</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;overflow:hidden;background:#0b1f44}
+.vpt-hero{position:relative;width:100%;overflow:hidden;background:#0b1f44;
+  font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;word-break:keep-all}
+.vpt-hero picture{display:block}
+.vpt-hero img.vpt-bg{display:block;width:100%;height:auto}
+
+.vpt-copy{position:absolute;left:8%;top:50%;transform:translateY(-50%);width:46%;color:#fff}
+.vpt-title{margin:0;font-weight:800;line-height:1.2;letter-spacing:-.03em;font-size:clamp(26px,4.4vw,68px);color:#fff}
+.vpt-title .vpt-line{display:flex;align-items:center;gap:.25em;white-space:nowrap}
+.vpt-br{font-weight:300;color:rgba(255,255,255,.6)}
+
+/* 롤링: 웨이브 → 인생 → 직업 → 대학 */
+.vpt-roller{--h:1.3em;display:inline-block;height:var(--h);width:3.3em;overflow:hidden;text-align:center;
+  -webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent);
+  mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent)}
+.vpt-list{display:flex;flex-direction:column;animation:vptRoll 10s cubic-bezier(.7,0,.2,1) infinite}
+.vpt-item{height:var(--h);line-height:var(--h);flex:none;display:flex;align-items:center;justify-content:center;
+  color:#fff;text-shadow:0 0 28px rgba(53,212,255,.6)}
+@keyframes vptRoll{
+  0%,22%{transform:translateY(0)}
+  25%,47%{transform:translateY(-20%)}
+  50%,72%{transform:translateY(-40%)}
+  75%,97%{transform:translateY(-60%)}
+  100%{transform:translateY(-80%)}}
+
+/* 웨이브 바 */
+.vpt-eq{display:inline-flex;align-items:center;gap:.08em;height:.8em}
+.vpt-eq i{display:block;width:.09em;min-width:4px;border-radius:6px;background:linear-gradient(#35d4ff,#0a5cff);
+  box-shadow:0 0 14px rgba(53,212,255,.6);animation:vptEq 1.1s ease-in-out infinite}
+.vpt-eq i:nth-child(1){height:30%;animation-delay:-.9s}
+.vpt-eq i:nth-child(2){height:80%;animation-delay:-.7s}
+.vpt-eq i:nth-child(3){height:55%;animation-delay:-.5s}
+.vpt-eq i:nth-child(4){height:100%;animation-delay:-.3s}
+.vpt-eq i:nth-child(5){height:60%;animation-delay:-.15s}
+.vpt-eq i:nth-child(6){height:35%;animation-delay:0s}
+@keyframes vptEq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+
+.vpt-sub{margin:.9em 0 1.4em;font-size:clamp(12px,1.35vw,21px);line-height:1.75;color:rgba(255,255,255,.8)}
+
+/* CTA 버튼 */
+.vpt-btn{display:inline-block;padding:.85em 1.7em;border-radius:999px;font-weight:700;
+  font-size:clamp(13px,1.3vw,18px);color:#fff;text-decoration:none;
+  background:linear-gradient(135deg,#0a5cff,#4d8dff);
+  box-shadow:0 10px 30px rgba(10,92,255,.5),inset 0 1px 0 rgba(255,255,255,.35);
+  transition:transform .25s,box-shadow .25s}
+.vpt-btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(10,92,255,.65)}
+
+/* 모바일 */
+@media (max-width:768px){
+  .vpt-copy{left:6%;top:8%;transform:none;width:88%}
+  .vpt-title{font-size:clamp(26px,8.2vw,42px)}
+  .vpt-sub{font-size:13px;margin:.7em 0 1.2em}
+  .vpt-btn{font-size:14px}
+}
+</style>
+</head>
+<body>
+<div class="vpt-hero">
+  <picture>
+    <source media="(max-width:768px)" srcset="https://cdn.liveklass.com/common/01a1857bdd2b7178aa044f6369421bbe.png">
+    <img class="vpt-bg" src="https://cdn.liveklass.com/common/01a185795d22734492b5b8997151f19b.png" alt="">
+  </picture>
+
+  <div class="vpt-copy">
+    <h2 class="vpt-title">
+      <span>보이스로</span>
+      <span class="vpt-line">
+        <span class="vpt-br">[</span>
+        <span class="vpt-roller">
+          <span class="vpt-list">
+            <span class="vpt-item"><span class="vpt-eq"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+            <span class="vpt-item">인생</span>
+            <span class="vpt-item">직업</span>
+            <span class="vpt-item">대학</span>
+            <span class="vpt-item"><span class="vpt-eq"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+          </span>
+        </span>
+        <span class="vpt-br">]</span><span>이 달라진다</span>
+      </span>
+    </h2>
+    <p class="vpt-sub">발성·호흡·발음부터 말의 리듬과 전달력까지<br>내 말하기 습관을 진단하고 직접 연습하는 보이스 클래스</p>
+    <a class="vpt-btn" href="https://sori.liveklass.com/classes/322859" target="_top">보이스 PT 시작하기 ↗</a>
+  </div>
+</div>
+</body>
+</html>
