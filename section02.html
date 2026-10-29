@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>음률 보이스 PT - 고민 & 배울 내용</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* ------------------------------------------------------------
+   피그마 디자인(PC 1600px / 모바일 390px 기준)을 화면 폭에 비례해 그대로 확대·축소.
+   --u = 디자인 1px 의 실제 크기. 모든 수치는 calc(숫자 * var(--u)) 로 표기.
+------------------------------------------------------------ */
+:root{--u:calc(100vw / 1600)}
+@media (max-width:768px){:root{--u:calc(100vw / 390)}}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;background:#fff}  /* iframe에서는 scrolling="no"라 스크롤바가 안 보이고, 파일로 직접 열면 세로 스크롤 가능 */
+body{font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;word-break:keep-all}
+.m{display:none}
+
+.page{position:relative;width:100%;height:calc(1270 * var(--u));overflow:hidden}
+
+/* ================= SECTION 1 : 고민 ================= */
+.s1{position:relative;width:100%;height:calc(758 * var(--u));background:#2e2e2e;overflow:hidden}
+.grad{position:absolute;left:0;top:calc(-15.53 * var(--u));width:100%;height:calc(839 * var(--u));
+  background:linear-gradient(to bottom,rgba(55,55,55,0),#06f 76.667%)}
+.arc{position:absolute;left:calc(-535 * var(--u));top:calc(385.53 * var(--u));width:calc(2655 * var(--u));height:calc(1363 * var(--u));
+  border-radius:50%;background:#fff}
+
+/* 말풍선 */
+.bub{position:absolute;z-index:3;filter:drop-shadow(0 0 calc(2 * var(--u)) rgba(0,0,0,.25))}
+.bub .pill{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;background:#fff;color:#000;
+  padding:calc(12 * var(--u)) calc(20 * var(--u));border-radius:999px;
+  font-size:calc(24 * var(--u));line-height:1.4;font-weight:400;letter-spacing:-.04em}
+.bub .tail{position:absolute;top:calc(57.4 * var(--u));width:calc(22.5 * var(--u));height:calc(14.55 * var(--u))}
+.bub .tail.r{left:67%}  /* 학원… */
+.b1{left:calc(498 * var(--u));top:calc(80 * var(--u))}
+.b1 .tail{left:47.5%}
+.b2{left:calc(793 * var(--u));top:calc(161.53 * var(--u))}
+.b2 .tail{left:26.9%}
+.b3{left:calc(371 * var(--u));top:calc(259.53 * var(--u))}
+.b3 .tail{left:67%}
+
+/* 배너 */
+.banner{position:absolute;z-index:1;left:calc(293 * var(--u));top:calc(288.86 * var(--u));width:calc(1014 * var(--u));height:calc(230 * var(--u));
+  border-radius:calc(20 * var(--u));overflow:hidden;background:linear-gradient(120deg,#1b1b1b,#3a3a3a)}
+.banner .photo{position:absolute;left:calc(50% - 60 * var(--u));top:calc(-68 * var(--u));width:calc(1212 * var(--u));height:calc(411 * var(--u));transform:translateX(-50%)}
+.banner .photo img{display:block;width:100%;height:100%;object-fit:cover}
+.banner h2{position:absolute;left:50%;top:calc(50% - 37.86 * var(--u));transform:translateX(-50%);text-align:center;white-space:nowrap;
+  color:#fff;font-size:calc(36 * var(--u));line-height:1.4;font-weight:600;letter-spacing:-.04em}
+
+/* 연결선 */
+.conn{position:absolute;left:50%;top:calc(519 * var(--u));width:0;height:calc(48 * var(--u))}
+.conn .line{position:absolute;left:calc(-1 * var(--u));top:0;width:calc(2 * var(--u));height:calc(38 * var(--u));background:#000;transform-origin:top center}
+.conn .dot{position:absolute;left:calc(-5 * var(--u));top:calc(38 * var(--u));width:calc(10 * var(--u));height:calc(10 * var(--u));border-radius:50%;background:#000}
+
+/* 문구 */
+.ttl{position:absolute;left:calc(50% + .5 * var(--u));top:calc(604 * var(--u));transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:calc(12 * var(--u));white-space:nowrap;text-align:center}
+.ttl .t1{font-size:calc(32 * var(--u));line-height:1.4;font-weight:600;letter-spacing:-.04em;color:transparent;
+  background-image:linear-gradient(93.64deg,rgb(0,0,0) 3.69%,rgb(115,115,115) 18.786%,rgb(58,58,58) 25.072%,rgb(158,158,158) 71.858%,rgb(102,102,102) 78.778%,rgb(32,32,32) 103.24%);
+  -webkit-background-clip:text;background-clip:text}
+.ttl .d{color:#000;font-weight:400;letter-spacing:-.04em;line-height:1.4}
+.ttl .d1{font-size:calc(18 * var(--u))}
+.ttl .d2{font-size:calc(19 * var(--u))}
+
+/* ================= SECTION 2 : 배울 내용 ================= */
+.s2{position:relative;width:100%;height:calc(512 * var(--u));background:#fff;overflow:hidden}
+.s2 .bg{position:absolute;left:0;top:calc(-.47 * var(--u));width:100%;height:calc(512 * var(--u));
+  background-image:linear-gradient(177.46deg,rgba(215,233,253,0) 6.09%,rgb(215,233,253) 96.695%)}
+.div{position:absolute;left:50%;top:calc(12.5 * var(--u));width:calc(1133 * var(--u));height:calc(30 * var(--u));transform:translateX(-50%)}
+.div svg{display:block;width:100%;height:100%;overflow:visible}
+.div path,.div-m path{fill:none;stroke:#8fb8f0;stroke-width:1.4;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1}
+.div-m{display:none}
+
+.wrap{position:absolute;left:0;top:calc(50% - .5 * var(--u));transform:translateY(-50%);width:100%;
+  display:flex;flex-direction:column;align-items:center;gap:calc(20 * var(--u))}
+.head{display:flex;flex-direction:column;align-items:center;gap:calc(12 * var(--u))}
+.head h3{font-size:calc(32 * var(--u));line-height:1.4;font-weight:600;color:#000;white-space:nowrap}
+.head h3 .blue{color:#06f}
+.gap{display:inline-block;position:relative;width:2.94em;height:1.4em;vertical-align:top}
+.gap img{position:absolute;left:50%;top:-.02em;height:1.45em;width:auto;transform:translateX(-50%);display:block}
+.head p{font-size:calc(18 * var(--u));line-height:1.4;font-weight:400;color:#333;white-space:nowrap}
+
+.cards{display:flex;gap:calc(20 * var(--u));width:100%;padding:0 calc(293 * var(--u))}
+.card{position:relative;flex:1 1 0;min-width:1px;height:calc(251 * var(--u));border-radius:calc(16 * var(--u));overflow:hidden;
+  background:#c3c3c3;
+  box-shadow:0 0 calc(4 * var(--u)) rgba(0,0,0,.14),calc(-10 * var(--u)) calc(10 * var(--u)) calc(14 * var(--u)) calc(2 * var(--u)) rgba(0,102,255,.08);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.card:hover{transform:translateY(calc(-8 * var(--u)));
+  box-shadow:0 0 calc(4 * var(--u)) rgba(0,0,0,.14),calc(-10 * var(--u)) calc(16 * var(--u)) calc(26 * var(--u)) calc(2 * var(--u)) rgba(0,102,255,.22)}
+.card.c1{background:linear-gradient(160deg,#06122b,#0a2a6e)}
+.card.c2{background:linear-gradient(160deg,#0a3fc4,#0a1c5c)}
+.card.c3{background:linear-gradient(160deg,#2a3e9a,#6b2d6e)}
+.card img{position:absolute;display:block;object-fit:cover;max-width:none;transition:scale .6s}
+.card:hover img{scale:1.06}
+.card img,.c1 img,.c2 img,.c3 img{left:0;top:0;width:100%;height:100%}
+.card .shade{display:none;position:absolute;left:calc(-7 * var(--u));top:calc(-5 * var(--u));width:calc(336 * var(--u));height:calc(260 * var(--u));
+  background:radial-gradient(circle at calc(331 * var(--u)) 0,transparent 0,transparent calc(150 * var(--u)),rgba(0,0,0,.6) calc(250 * var(--u)))}
+.card .label{position:absolute;left:50%;top:calc(50% - .5 * var(--u));transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;
+  color:#fff;font-weight:600;line-height:1.4;white-space:nowrap}
+.card .label b{font-weight:600;font-size:calc(28 * var(--u))}
+.card .label span{font-size:calc(22 * var(--u))}
+
+/* ================= 애니메이션 (화면에 보이면 순서대로 재생) ================= */
+.bub{opacity:0;transform:translateY(calc(18 * var(--u))) scale(.85);transform-origin:50% 100%}
+.play .bub{animation:bubIn .7s cubic-bezier(.3,1.5,.5,1) var(--d,0s) forwards,
+  bubFloat 4.2s ease-in-out calc(var(--d,0s) + .9s) infinite alternate}
+@keyframes bubIn{to{opacity:1;transform:none}}
+@keyframes bubFloat{from{translate:0 0}to{translate:0 calc(-6 * var(--u))}}
+
+.banner{opacity:0;transform:translateY(calc(26 * var(--u)))}
+.play .banner{animation:rise .9s cubic-bezier(.2,.8,.2,1) .9s forwards}
+.play .banner .photo img{animation:settle 2.6s ease-out .9s both}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes settle{from{scale:1.12}to{scale:1}}
+
+.conn .line{transform:scaleY(0)}
+.conn .dot{transform:scale(0)}
+.play .conn .line{animation:grow .6s ease-out 1.5s forwards}
+.play .conn .dot{animation:pop .45s cubic-bezier(.3,1.7,.5,1) 2.05s forwards}
+@keyframes grow{to{transform:scaleY(1)}}
+@keyframes pop{to{transform:scale(1)}}
+
+.ttl .t1,.ttl .d{opacity:0;translate:0 calc(14 * var(--u))}
+.play .ttl .t1{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) 2.2s forwards}
+.play .ttl .d{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) 2.45s forwards}
+@keyframes fadeUp{to{opacity:1;translate:0 0}}
+
+/* section 2 */
+.play .div path,.play .div-m path{animation:draw 1.1s cubic-bezier(.5,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.head{opacity:0;translate:0 calc(16 * var(--u))}
+.play .head{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) .3s forwards}
+.card{opacity:0;translate:0 calc(34 * var(--u))}
+.play .card{animation:fadeUp .85s cubic-bezier(.2,.8,.2,1) var(--d,0s) forwards}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .bub,.banner,.card,.head,.ttl .t1,.ttl .d{opacity:1!important;transform:none!important;translate:none!important}
+  .conn .line,.conn .dot{transform:none!important}
+  .div path,.div-m path{stroke-dashoffset:0!important}
+}
+
+/* ================= 모바일 (390px 기준) ================= */
+@media (max-width:768px){
+  .m{display:inline}
+  .page{height:calc(1200 * var(--u))}
+  .s1{height:calc(560 * var(--u))}
+  .grad{top:0;height:calc(640 * var(--u))}
+  .arc{left:calc(-355 * var(--u));top:calc(300 * var(--u));width:calc(1100 * var(--u));height:calc(700 * var(--u))}
+
+  .bub .pill{padding:calc(8 * var(--u)) calc(14 * var(--u));font-size:calc(13.5 * var(--u))}
+  .bub .tail{top:calc(34.4 * var(--u));width:calc(15 * var(--u));height:calc(9.7 * var(--u))}
+  .b1{left:calc(20 * var(--u));top:calc(22 * var(--u))}
+  .b2{left:auto;right:calc(20 * var(--u));top:calc(74 * var(--u))}
+  .b3{left:calc(20 * var(--u));top:calc(126 * var(--u))}
+
+  .banner{left:calc(16 * var(--u));top:calc(190 * var(--u));width:calc(358 * var(--u));height:calc(150 * var(--u));border-radius:calc(16 * var(--u))}
+  .banner .photo{left:0;top:0;width:100%;height:100%;transform:none}
+  .banner h2{top:50%;transform:translate(-50%,-50%);font-size:calc(20 * var(--u))}
+
+  .conn{top:calc(340 * var(--u))}
+  .conn .line{height:calc(24 * var(--u))}
+  .conn .dot{top:calc(24 * var(--u));left:calc(-4 * var(--u));width:calc(8 * var(--u));height:calc(8 * var(--u))}
+
+  .ttl{top:calc(382 * var(--u));gap:calc(10 * var(--u))}
+  .ttl .t1{font-size:calc(21 * var(--u))}
+  .ttl .d1,.ttl .d2{font-size:calc(12.5 * var(--u))}
+
+  .s2{height:calc(640 * var(--u))}
+  .div{display:none}
+  .div-m{display:block;position:absolute;left:50%;top:calc(14 * var(--u));width:calc(340 * var(--u));height:calc(18 * var(--u));transform:translateX(-50%)}
+  .div-m svg{display:block;width:100%;height:100%;overflow:visible}
+  .wrap{position:static;transform:none;display:block}
+  .head{position:absolute;left:0;top:calc(46 * var(--u));width:100%;gap:calc(8 * var(--u))}
+  .head h3{font-size:calc(21 * var(--u))}
+  .head p{font-size:calc(13 * var(--u))}
+  .cards{position:absolute;left:calc(20 * var(--u));top:calc(124 * var(--u));width:calc(350 * var(--u));padding:0;flex-direction:column;gap:calc(14 * var(--u))}
+  .card{flex:none;width:100%;height:calc(150 * var(--u));border-radius:calc(14 * var(--u))}
+  .card img,.c1 img,.c2 img,.c3 img{left:0;top:0;width:100%;height:100%}
+  .c1 img{object-position:50% 30%}
+  .c2 img{object-position:50% 38%}
+  .c3 img{object-position:50% 50%}
+  .card .shade{display:none;left:0;top:0;width:100%;height:100%;
+    background:radial-gradient(circle at 100% 0,transparent 0,transparent calc(80 * var(--u)),rgba(0,0,0,.6) calc(200 * var(--u)))}
+  .card .label b{font-size:calc(22 * var(--u))}
+  .card .label span{font-size:calc(17 * var(--u))}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ SECTION 1 ============ -->
+  <section class="s1" id="s1">
+    <div class="grad"></div>
+    <div class="arc"></div>
+
+    <!-- 말풍선 (위에서부터 순서대로 등장) -->
+    <div class="bub b1" style="--d:0s">
+      <div class="pill">목소리가 작아서 발표나 면접이 두려우신가요?</div>
+      <svg class="tail" viewBox="0 0 22.5 14.55" aria-hidden="true"><path d="M0 0H22.5V14.55Z" fill="#fff"/></svg>
+    </div>
+    <div class="bub b2" style="--d:.3s">
+      <div class="pill">웅얼거리는 발음 때문에 자꾸 되물어보나요?</div>
+      <svg class="tail" viewBox="0 0 22.5 14.55" aria-hidden="true"><path d="M0 0H22.5L0 14.55Z" fill="#fff"/></svg>
+    </div>
+    <div class="bub b3" style="--d:.6s">
+      <div class="pill">학원 갈 시간이 없어서 목소리 교정을 미루고 계신가요?</div>
+      <svg class="tail" viewBox="0 0 22.5 14.55" aria-hidden="true"><path d="M0 0H22.5V14.55Z" fill="#fff"/></svg>
+    </div>
+
+    <!-- 배너 -->
+    <div class="banner">
+      <div class="photo"><img src="images/pain-mic.png" alt="" onerror="this.remove()"></div>
+      <h2>하고 싶은 말은 있는데<br>생각만큼 전해지지 않나요?</h2>
+    </div>
+
+    <div class="conn" aria-hidden="true"><span class="line"></span><span class="dot"></span></div>
+
+    <div class="ttl">
+      <p class="t1">내 목소리가 답답했던 순간들,<br class="m"> 이제는 달라질 차례입니다.</p>
+      <div class="d">
+        <p class="d1">작아서 들리지 않던 목소리, 자꾸 되묻게 만들던 발음,<br class="m"> 중요한 순간마다 떨리던 말투까지</p>
+        <p class="d2">원하는 시간에, 원하는 만큼 반복하며<br class="m"> 나만의 속도로 목소리를 연습해 보세요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2 ============ -->
+  <section class="s2" id="s2">
+    <div class="bg"></div>
+
+    <div class="div" aria-hidden="true">
+      <svg viewBox="0 0 1133 30" preserveAspectRatio="none"><path pathLength="1" d="M0 1H527.5L566.5 28L605.5 1H1133"/></svg>
+    </div>
+    <div class="div-m" aria-hidden="true">
+      <svg viewBox="0 0 340 18" preserveAspectRatio="none"><path pathLength="1" d="M0 1H146L170 16L194 1H340"/></svg>
+    </div>
+
+    <div class="wrap">
+      <div class="head">
+        <h3><span class="blue">음률 보이스 PT</span> [<span class="gap"><img src="images/chat-bubble.png" alt="" onerror="this.remove()"></span>]이런 걸 배울거예요</h3>
+        <p>말하는 요령을 넘어 목소리를 쓰는 기본부터 대화 스킬까지</p>
+      </div>
+
+      <div class="cards">
+        <article class="card c1" style="--d:.7s">
+          <img src="images/card-voice.png" alt="" onerror="this.remove()">
+          <div class="shade"></div>
+          <div class="label"><b>발성</b><span>VOICE</span></div>
+        </article>
+        <article class="card c2" style="--d:.9s">
+          <img src="images/card-gesture.png" alt="" onerror="this.remove()">
+          <div class="shade"></div>
+          <div class="label"><b>몸짓</b><span>GESTURE</span></div>
+        </article>
+        <article class="card c3" style="--d:1.1s">
+          <img src="images/card-technical.png" alt="" onerror="this.remove()">
+          <div class="shade"></div>
+          <div class="label"><b>전문적인</b><span>TECHNICAL</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  // 각 섹션이 화면에 보이면 한 번만 순서대로 재생 (iframe이 스크롤로 보일 때 시작)
+  (function () {
+    var secs = [].slice.call(document.querySelectorAll('.s1,.s2'));
+    function play(el) { el.classList.add('play'); }
+    if (!('IntersectionObserver' in window)) { secs.forEach(play); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { play(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    secs.forEach(function (s) { io.observe(s); });
+  })();
+</script>
+</body>
+</html>
