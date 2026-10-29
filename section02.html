@@ -105,27 +105,27 @@ body{font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;-w
 
 /* ================= 애니메이션 (화면에 보이면 순서대로 재생) ================= */
 .bub{opacity:0;transform:translateY(calc(18 * var(--u))) scale(.85);transform-origin:50% 100%}
-.play .bub{animation:bubIn .7s cubic-bezier(.3,1.5,.5,1) var(--d,0s) forwards,
-  bubFloat 4.2s ease-in-out calc(var(--d,0s) + .9s) infinite alternate}
+.play .bub{animation:bubIn .8s cubic-bezier(.3,1.4,.5,1) var(--d,0s) forwards,
+  bubFloat 4.2s ease-in-out calc(var(--d,0s) + 1s) infinite alternate}
 @keyframes bubIn{to{opacity:1;transform:none}}
 @keyframes bubFloat{from{translate:0 0}to{translate:0 calc(-6 * var(--u))}}
 
 .banner{opacity:0;transform:translateY(calc(26 * var(--u)))}
-.play .banner{animation:rise .9s cubic-bezier(.2,.8,.2,1) .9s forwards}
-.play .banner .photo img{animation:settle 2.6s ease-out .9s both}
+.play .banner{animation:rise .9s cubic-bezier(.2,.8,.2,1) 2s forwards}
+.play .banner .photo img{animation:settle 2.4s ease-out 2s both}
 @keyframes rise{to{opacity:1;transform:none}}
 @keyframes settle{from{scale:1.12}to{scale:1}}
 
 .conn .line{transform:scaleY(0)}
 .conn .dot{transform:scale(0)}
-.play .conn .line{animation:grow .6s ease-out 1.5s forwards}
-.play .conn .dot{animation:pop .45s cubic-bezier(.3,1.7,.5,1) 2.05s forwards}
+.play .conn .line{animation:grow .5s ease-out 2.7s forwards}
+.play .conn .dot{animation:pop .4s cubic-bezier(.3,1.7,.5,1) 3.15s forwards}
 @keyframes grow{to{transform:scaleY(1)}}
 @keyframes pop{to{transform:scale(1)}}
 
 .ttl .t1,.ttl .d{opacity:0;translate:0 calc(14 * var(--u))}
-.play .ttl .t1{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) 2.2s forwards}
-.play .ttl .d{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) 2.45s forwards}
+.play .ttl .t1{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) 3.25s forwards}
+.play .ttl .d{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) 3.55s forwards}
 @keyframes fadeUp{to{opacity:1;translate:0 0}}
 
 /* section 2 */
@@ -134,7 +134,7 @@ body{font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;-w
 .head{opacity:0;translate:0 calc(16 * var(--u))}
 .play .head{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) .3s forwards}
 .card{opacity:0;translate:0 calc(34 * var(--u))}
-.play .card{animation:fadeUp .85s cubic-bezier(.2,.8,.2,1) var(--d,0s) forwards}
+.play .card{animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) var(--d,0s) forwards}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -196,15 +196,15 @@ body{font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;-w
     <div class="arc"></div>
 
     <!-- 말풍선 (위에서부터 순서대로 등장) -->
-    <div class="bub b1" style="--d:0s">
+    <div class="bub b1" style="--d:.3s">
       <div class="pill">목소리가 작아서 발표나 면접이 두려우신가요?</div>
       <svg class="tail" viewBox="0 0 22.5 14.55" aria-hidden="true"><path d="M0 0H22.5V14.55Z" fill="#fff"/></svg>
     </div>
-    <div class="bub b2" style="--d:.3s">
+    <div class="bub b2" style="--d:.9s">
       <div class="pill">웅얼거리는 발음 때문에 자꾸 되물어보나요?</div>
       <svg class="tail" viewBox="0 0 22.5 14.55" aria-hidden="true"><path d="M0 0H22.5L0 14.55Z" fill="#fff"/></svg>
     </div>
-    <div class="bub b3" style="--d:.6s">
+    <div class="bub b3" style="--d:1.5s">
       <div class="pill">학원 갈 시간이 없어서 목소리 교정을 미루고 계신가요?</div>
       <svg class="tail" viewBox="0 0 22.5 14.55" aria-hidden="true"><path d="M0 0H22.5V14.55Z" fill="#fff"/></svg>
     </div>
@@ -244,12 +244,12 @@ body{font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;-w
       </div>
 
       <div class="cards">
-        <article class="card c1" style="--d:.7s">
+        <article class="card c1" style="--d:.6s">
           <img src="images/card-voice.png" alt="" onerror="this.remove()">
           <div class="shade"></div>
           <div class="label"><b>발성</b><span>VOICE</span></div>
         </article>
-        <article class="card c2" style="--d:.9s">
+        <article class="card c2" style="--d:.85s">
           <img src="images/card-gesture.png" alt="" onerror="this.remove()">
           <div class="shade"></div>
           <div class="label"><b>몸짓</b><span>GESTURE</span></div>
@@ -266,17 +266,23 @@ body{font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;-w
 </div>
 
 <script>
-  // 각 섹션이 화면에 보이면 한 번만 순서대로 재생 (iframe이 스크롤로 보일 때 시작)
+  // 위 → 아래 순서 보장: .s1 연출이 끝난 뒤에 .s2 연출을 시작 (화면에 한 번에 다 보여도 순서대로)
   (function () {
-    var secs = [].slice.call(document.querySelectorAll('.s1,.s2'));
-    function play(el) { el.classList.add('play'); }
-    if (!('IntersectionObserver' in window)) { secs.forEach(play); return; }
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.isIntersecting) { play(e.target); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.15 });
-    secs.forEach(function (s) { io.observe(s); });
+    var s1 = document.querySelector('.s1'), s2 = document.querySelector('.s2');
+    var s1Done = false, s2Seen = false, started = false;
+    function tryS2() { if (s1Done && s2Seen) s2.classList.add('play'); }
+    function startS1() {
+      if (started) return; started = true;
+      s1.classList.add('play');
+      setTimeout(function () { s1Done = true; tryS2(); }, 4400);
+    }
+    if (!('IntersectionObserver' in window)) { s1.classList.add('play'); s2.classList.add('play'); return; }
+    new IntersectionObserver(function (es, o) {
+      if (es[0].isIntersecting) { startS1(); o.disconnect(); }
+    }, { threshold: 0.15 }).observe(s1);
+    new IntersectionObserver(function (es, o) {
+      if (es[0].isIntersecting) { s2Seen = true; tryS2(); o.disconnect(); }
+    }, { threshold: 0.15 }).observe(s2);
   })();
 </script>
 </body>
