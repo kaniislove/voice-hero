@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>직접 말하며 배우는 보이스 PT</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* 모든 크기를 rem으로 잡고, rem을 화면 폭에 비례시켜서
+   iframe 높이(vw)가 항상 같은 비율이 되도록 함 */
+:root{--blue:#0a5cff;--ink:#0b1328;--muted:#4b5568}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:calc(100vw / 90)}           /* PC: 1440px 기준 16px */
+html,body{overflow:hidden;background:#f4f7fd}
+body{font-family:'Pretendard Variable','Pretendard','Noto Sans KR',sans-serif;color:var(--ink);word-break:keep-all;-webkit-font-smoothing:antialiased}
+
+.sec{
+  height:52vw;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(100deg,#f7f9fe 0%,#f1f5fd 55%,#dfeafc 100%);
+  padding:0 4rem;
+}
+h2{font-size:2.4rem;font-weight:800;letter-spacing:-.03em;line-height:1.3}
+.lead{margin-top:1.25rem;font-size:1.05rem;line-height:1.7;color:var(--muted)}
+
+.steps{position:relative;margin-top:3rem;width:100%;max-width:62rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.steps::before{ /* 가로 라인 */
+  content:"";position:absolute;top:.625rem;left:calc(100% / 6);right:calc(100% / 6);height:2px;background:var(--blue);
+}
+.step{position:relative;display:flex;flex-direction:column;align-items:center}
+.dot{position:relative;z-index:1;width:1.25rem;height:1.25rem;border-radius:50%;border:2px solid var(--blue);background:#fff}
+.dot.half{background:linear-gradient(90deg,var(--blue) 50%,#fff 50%)}
+.dot.full{background:var(--blue)}
+.label{margin-top:1.25rem;font-size:1.1rem;font-weight:700;color:var(--blue);letter-spacing:.01em}
+
+/* 이미지 영역 */
+.thumb{margin-top:1.25rem;width:100%;aspect-ratio:19/10;border-radius:1rem;overflow:hidden;
+  background:linear-gradient(135deg,#cfe0ff,#e9f0ff);box-shadow:0 .9rem 2rem rgba(10,40,120,.12)}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.step:hover .thumb img{transform:scale(1.06)}
+
+.step h3{margin-top:1.5rem;font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.35}
+.step p{margin-top:.9rem;font-size:1rem;line-height:1.75;color:var(--muted)}
+
+/* ---------- 순차 등장 애니메이션 ----------
+   화면에 보이면 .sec에 .play가 붙고, 각 요소가 --d 시간만큼 늦게 시작 */
+.fade{opacity:0;transform:translateY(1.4rem)}
+.play .fade{animation:up .9s cubic-bezier(.2,.8,.2,1) var(--d,0s) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* 타임라인 선: 왼쪽에서 오른쪽으로 그어짐 */
+.steps::before{transform:scaleX(0);transform-origin:left center}
+.play .steps::before{animation:draw 2s cubic-bezier(.5,0,.2,1) .6s forwards}
+@keyframes draw{to{transform:scaleX(1)}}
+
+/* 점: 톡 튀어나오는 효과 */
+.dot{opacity:0;transform:scale(0)}
+.play .dot{animation:pop .5s cubic-bezier(.3,1.6,.5,1) var(--d,0s) forwards}
+@keyframes pop{to{opacity:1;transform:scale(1)}}
+
+@media (prefers-reduced-motion:reduce){
+  .fade,.dot{opacity:1;transform:none;animation:none!important}
+  .steps::before{transform:none;animation:none!important}
+}
+
+/* ---------- 모바일: 세로 타임라인 ---------- */
+@media (max-width:768px){
+  html{font-size:calc(100vw / 24.375)}      /* 390px 기준 16px */
+  .sec{height:310vw;padding:0 1.5rem;align-items:stretch;text-align:left}
+  h2{font-size:1.6rem;text-align:center}
+  .lead{font-size:.9rem;text-align:center;margin-top:1rem}
+  .steps{margin-top:2.5rem;grid-template-columns:1fr;gap:2.5rem;max-width:none}
+  .steps::before{top:.6rem;bottom:.6rem;left:.6rem;right:auto;width:2px;height:auto;
+    transform:scaleY(0);transform-origin:top center}
+  .play .steps::before{animation:drawY 2.2s cubic-bezier(.5,0,.2,1) .6s forwards}
+  @keyframes drawY{to{transform:scaleY(1)}}
+  .step{align-items:stretch;padding-left:2.4rem}
+  .dot{position:absolute;left:0;top:.05rem}
+  .label{margin-top:0;font-size:1.05rem}
+  .thumb{margin-top:.8rem}
+  .step h3{margin-top:1rem;font-size:1.3rem}
+  .step p{margin-top:.5rem;font-size:.92rem;line-height:1.65}
+}
+</style>
+</head>
+<body>
+<section class="sec">
+  <h2 class="fade" style="--d:0s">직접 말하며 배우는 보이스 PT</h2>
+  <p class="lead fade" style="--d:.25s">실제 사례로 원인을 이해하고, 해결 연습을 따라 하며<br>훈련 전후의 말하기를 비교해보세요.</p>
+
+  <div class="steps">
+    <div class="step fade" style="--d:.7s">
+      <span class="dot" style="--d:.6s"></span>
+      <div class="label">BEFORE</div>
+      <div class="thumb"><img src="https://cdn.liveklass.com/common/01a185d7b2e97f2590ded1d110e35d14.png" alt="말하기 습관 진단" onerror="this.remove()"></div>
+      <h3>말하기 습관 진단</h3>
+      <p>평소 말하기를 살펴보고 개선이<br>필요한 부분과 그 원인을 파악합니다</p>
+    </div>
+
+    <div class="step fade" style="--d:1.7s">
+      <span class="dot half" style="--d:1.6s"></span>
+      <div class="label">TRAINING</div>
+      <div class="thumb"><img src="https://cdn.liveklass.com/common/01a185d6255177e1b3b0cc68496c0045.png" alt="맞춤형 말하기 훈련" onerror="this.remove()"></div>
+      <h3>맞춤형 말하기 훈련</h3>
+      <p>문제의 원인을 이해하고<br>발성과 말하기 방법을 직접 연습합니다</p>
+    </div>
+
+    <div class="step fade" style="--d:2.7s">
+      <span class="dot full" style="--d:2.6s"></span>
+      <div class="label">AFTER</div>
+      <div class="thumb"><img src="https://cdn.liveklass.com/common/01a185d6339b7147aefa8e61838582d7.png" alt="연습 전후 비교" onerror="this.remove()"></div>
+      <h3>연습 전후 비교</h3>
+      <p>훈련 전후의 말하기를 비교하며<br>달라진 부분을 직접 확인합니다</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 화면에 보이는 순간 한 번만 재생 (iframe이 스크롤로 보일 때 시작)
+  (function () {
+    var sec = document.querySelector('.sec');
+    function play() { sec.classList.add('play'); }
+    if (!('IntersectionObserver' in window)) { play(); return; }
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { play(); io.disconnect(); }
+    }, { threshold: 0.25 });
+    io.observe(sec);
+  })();
+</script>
+</body>
+</html>
